@@ -26,6 +26,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="userInputChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="7Kv-os-i3U"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3db-HK-ATj">
                                 <rect key="frame" x="256" y="64" width="103" height="24"/>
@@ -87,6 +90,9 @@
                                     <segment title="-"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="negativeSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="ucm-w7-dKb"/>
+                                </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UE5-Qz-mlf">
                                 <rect key="frame" x="43" y="444" width="289.33333333333331" height="28"/>
@@ -146,6 +152,7 @@
                         <outlet property="decimalSegment" destination="Te6-LX-ivg" id="RTv-Wk-1kg"/>
                         <outlet property="formulaPicker" destination="W3e-lU-zjh" id="NKq-ge-2tm"/>
                         <outlet property="fromUnitsLabel" destination="3db-HK-ATj" id="qVL-N6-ads"/>
+                        <outlet property="negativeSegment" destination="dgN-6a-QcK" id="cHs-ps-0kk"/>
                         <outlet property="resultsLabel" destination="4yO-75-KFK" id="lFl-AZ-GA7"/>
                         <outlet property="userInput" destination="cU4-5W-F4C" id="627-9c-92k"/>
                     </connections>
