@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var fromUnitsLabel: UILabel!
     @IBOutlet weak var resultsLabel: UILabel!
     @IBOutlet weak var formulaPicker: UIPickerView!
-    
+    @IBOutlet weak var decimalSegment: UISegmentedControl!
     
     var formulaArray = ["miles to kilometers",
                         "kilometers to miles",
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         formulaPicker.delegate = self
         formulaPicker.dataSource = self
+        conversionString = formulaArray[formulaPicker.selectedRow(inComponent: 0)]
     }
     
     func calculateConversion() {
@@ -55,10 +56,17 @@ class ViewController: UIViewController {
         default:
             print("show alert - for some reason we didn't have a conversion string.")
         }
-        resultsLabel.text = "\(inputValue) \(fromUnits) = \(outputValue) \(toUnits)"
+        let formatString = (decimalSegment.selectedSegmentIndex < decimalSegment.numberOfSegments ? "%.\(decimalSegment.selectedSegmentIndex+1)f" : "%f" )
+        let outputString = String(format: formatString, outputValue)
+        resultsLabel.text = "\(inputValue) \(fromUnits) = \(outputString) \(toUnits)"
     }
 
+    @IBAction func decimalSelected(_ sender: UISegmentedControl) {
+        calculateConversion()
+    }
+    
     @IBAction func convertButtonPressed(_ sender: UIButton) {
+        calculateConversion()
     }
 }
 
